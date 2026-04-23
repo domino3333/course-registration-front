@@ -11,12 +11,12 @@ const LectureTable = () => {
 
     useEffect(() => {
 
-        console.log("useeffect 시작")
+        console.log("useEffect 시작")
 
         const fetchData = async function () {
             const data = await getLectureList();
             setLectureList(data);
-            console.log("useeffect 후 lecture 데이터:",lectureList);
+            console.log("useEffect 후 lecture 데이터:",lectureList);
         }
         fetchData();
 
