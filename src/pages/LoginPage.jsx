@@ -1,11 +1,51 @@
+import axios from "axios";
+import { useState } from "react"
+import { ApiHost } from "../api/ApiHost";
+import { login } from "../api/authApi";
 
 
 const LoginPage = () =>{
 
 
+
+    const [input,setInput] = useState({
+        email:"",
+        password:""
+    });
+
+    const observeInput = (e)=>{
+        setInput({...input,
+            [e.target.name]: e.target.value
+        })
+        
+    }
+
+    const clickLogin = async (input)=>{
+
+        await login(input);
+    }
+
+    const clickSignUp = async (input)=>{
+
+        await login(input);
+    }
+
+
+
     return (<>
-        <h1>로그인 페이지</h1>
-        <p>시큐리티 연결 후 쓸 페이지</p>
+        <form onSubmit={clickLogin}>
+            <label htmlFor="email">
+                <input id="email" onChange={observeInput} name="email" type="text" placeholder="이메일" />
+            </label>
+            <label htmlFor="password">
+                <input id="password" type="password" name="password" onChange={observeInput} placeholder="비밀번호" />
+            </label>
+
+            <button type="submit">로그인</button>
+        </form>
+
+        <button onClick={clickSignUp}>회원가입</button>
+        
     </>)
 }
 
