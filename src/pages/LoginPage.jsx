@@ -22,12 +22,13 @@ const LoginPage = () =>{
         
     }
 
-    const clickLogin = async (input)=>{
-
-        await login(input);
+    const clickLogin = async (e)=>{
+        e.preventDefault();
+        const data = await login(input); // accessToken이 내려옴
+        nav('/')
     }
 
-    const clickSignUp = async (input)=>{
+    const clickSignUp = async ()=>{
         nav('/signUp')
     }
 
