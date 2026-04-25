@@ -2,6 +2,7 @@
 import { Suspense,lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
+import SignUpPage from "../pages/SignUpPage";
 
 
 const MainPage = lazy(()=>import("../pages/MainPage"))
@@ -22,6 +23,14 @@ const root = createBrowserRouter([
         element:(
             <Suspense fallback={<LoadingPage/>}>
                 <LoginPage/>
+            </Suspense>
+        )
+    },
+    {
+        path:'/signUp',
+        element:(
+            <Suspense fallback={<LoadingPage/>}>
+                <SignUpPage/>
             </Suspense>
         )
     },

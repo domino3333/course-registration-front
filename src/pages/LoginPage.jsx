@@ -2,11 +2,13 @@ import axios from "axios";
 import { useState } from "react"
 import { ApiHost } from "../api/ApiHost";
 import { login } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () =>{
 
 
+    const nav = useNavigate();
 
     const [input,setInput] = useState({
         email:"",
@@ -26,8 +28,7 @@ const LoginPage = () =>{
     }
 
     const clickSignUp = async (input)=>{
-
-        await login(input);
+        nav('/signUp')
     }
 
 
