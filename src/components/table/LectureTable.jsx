@@ -4,7 +4,8 @@ import { getLectureList } from "../../api/lectureApi";
 import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 
-const LectureTable = () => {
+const LectureTable = ({ refresh,onEnrollAndRemoveSuccess}) => {
+
 
     const [lectureList, setLectureList] = useState([]);
 
@@ -19,11 +20,12 @@ const LectureTable = () => {
             const data = await getLectureList();
             setLectureList(data);
             console.log("useEffect 후 lecture 데이터:", lectureList);
+
         }
         fetchData();
 
 
-    }, [])
+    }, [refresh])
 
     return (<>
 
@@ -44,8 +46,8 @@ const LectureTable = () => {
                 <tbody>
                     {lectureList.map((lecture) =>
                         <tr key={lecture.lectureNo}>
-                            <td><GreenMiniBtn text='신청' lectureNo={lecture.lectureNo}/></td>
-                            <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo}/></td>
+                            <td><GreenMiniBtn text='신청' lectureNo={lecture.lectureNo} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
+                            <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo} /></td>
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
                             <td>{lecture.credit}</td>
@@ -56,7 +58,7 @@ const LectureTable = () => {
                     )}
                 </tbody>
             </table>
-    </div >
+        </div >
     </>)
 }
 

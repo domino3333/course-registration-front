@@ -6,7 +6,7 @@ import GreenMiniBtn from "../button/GreenMiniBtn";
 import { getCartItemList } from "../../api/cartApi";
 import { getRegistrationList } from "../../api/RegistrationApi";
 
-const RegistrationTable = () => {
+const RegistrationTable = ({refresh,onEnrollAndRemoveSuccess}) => {
 
     const [registrationList, setregistrationList] = useState([]);
 
@@ -25,7 +25,7 @@ const RegistrationTable = () => {
         fetchData();
 
 
-    }, [])
+    }, [refresh])
 
     return (<>
 
@@ -43,7 +43,7 @@ const RegistrationTable = () => {
                 <tbody>
                     {registrationList?.map((item) =>
                         <tr key={item.registrationNo}>
-                            <td><GreenMiniBtn text='삭제'/></td>
+                            <td><GreenMiniBtn text='삭제' onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
                             <td>{item.registrationNo}</td>
                             <td>{item.memberNo}</td>
                             <td>{item.lectureNo}</td>
