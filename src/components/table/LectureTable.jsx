@@ -44,8 +44,8 @@ const LectureTable = () => {
                 <tbody>
                     {lectureList.map((lecture) =>
                         <tr key={lecture.lectureNo}>
-                            <td><GreenMiniBtn text='신청'/></td>
-                            <td><GreenMiniBtn text='담기'/></td>
+                            <td><GreenMiniBtn text='신청' lectureNo={lecture.lectureNo}/></td>
+                            <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo}/></td>
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
                             <td>{lecture.credit}</td>
