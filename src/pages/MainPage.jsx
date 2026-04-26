@@ -1,13 +1,30 @@
-import LectureTable from "../components/LectureTable";
+import LectureTable from "../components/table/LectureTable";
+import "../css/pages/MainPage.css"
 
 
-const MainPage = () =>{
+const MainPage = () => {
 
-    return(<>
+    return (<>
         <h1>메인페이지</h1>
+        <div className="page">
+            <div className="side_section">
+                기타버튼영역
+            </div>
 
-        <LectureTable/>
-        
+            <div className="main_section">
+                <div className="lecture">
+                    <LectureTable />
+
+                </div>
+                <div className="cart">
+                    장바구니
+                </div>
+
+            </div>
+
+        </div>
+
+
 
     </>)
 }

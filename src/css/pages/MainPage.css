@@ -1,0 +1,20 @@
+
+
+.page{
+    display: flex;
+    width:100%;
+}
+
+.main_section{
+
+    display:flex;
+    flex-direction: column;
+    width: 85%;
+
+}
+
+
+.side_section{
+
+    width: 15%;
+}
