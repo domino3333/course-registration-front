@@ -44,6 +44,7 @@ const RegistrationTable = () => {
                     {registrationList?.map((item) =>
                         <tr key={item.registrationNo}>
                             <td><GreenMiniBtn text='삭제'/></td>
+                            <td>{item.registrationNo}</td>
                             <td>{item.memberNo}</td>
                             <td>{item.lectureNo}</td>
                             <td>{item.createdAt}</td>
