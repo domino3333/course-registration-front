@@ -1,5 +1,7 @@
+import CartTable from "../components/table/RegistrationTable";
 import LectureTable from "../components/table/LectureTable";
 import "../css/pages/MainPage.css"
+import RegistrationTable from "../components/table/RegistrationTable";
 
 
 const MainPage = () => {
@@ -14,10 +16,9 @@ const MainPage = () => {
             <div className="main_section">
                 <div className="lecture">
                     <LectureTable />
-
                 </div>
                 <div className="cart">
-                    장바구니
+                    <RegistrationTable/>
                 </div>
 
             </div>

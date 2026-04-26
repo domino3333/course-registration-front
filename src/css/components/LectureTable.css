@@ -24,3 +24,9 @@ td {
     border: 1px solid black;
     background-color: rgb(157, 206, 157);
 }
+
+td:nth-child(1),
+td:nth-child(2)
+{
+    text-align: center;
+}

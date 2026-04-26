@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { getLectureList } from "../../api/lectureApi";
 import "../../css/components/LectureTable.css"
+import GreenMiniBtn from "../button/GreenMiniBtn";
 
 const LectureTable = () => {
 
@@ -43,8 +44,8 @@ const LectureTable = () => {
                 <tbody>
                     {lectureList.map((lecture) =>
                         <tr key={lecture.lectureNo}>
-                            <td>신청</td>
-                            <td>담기</td>
+                            <td><GreenMiniBtn text='신청'/></td>
+                            <td><GreenMiniBtn text='담기'/></td>
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
                             <td>{lecture.credit}</td>
