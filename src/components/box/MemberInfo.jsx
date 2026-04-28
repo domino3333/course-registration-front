@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMe } from "../../api/authApi";
-
-
+import "../../css/components/MemberInfo.css"
 
 const MemberInfo = () => {
 
@@ -28,10 +27,10 @@ const MemberInfo = () => {
 
     return (<>
         <div className="div_MemberInfo">
-            <p>{info.name}</p>
-            <p>{info.gender}</p>
-            <p>{info.email}</p>
-            <p>{info.code}</p>
+            <p>&lt;이름&gt;<br/>{info.name}</p>
+            <p>&lt;성별&gt;<br/>{info.gender}</p>
+            <p>&lt;이메일&gt;<br/>{info.email}</p>
+            <p>&lt;학번&gt;<br/>{info.code}</p>
         </div>
     </>)
 }

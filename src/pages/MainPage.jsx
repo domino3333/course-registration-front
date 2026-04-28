@@ -20,7 +20,7 @@ const MainPage = () => {
 
 
     return (<>
-        <h1>메인페이지</h1>
+    <h1>서경대 수강신청</h1>
         <div className="page">
             <div className="side_section">
                 <MemberInfo/>

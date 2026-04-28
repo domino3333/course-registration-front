@@ -2,7 +2,9 @@
 
 .div_MemberInfo{
     width:90%;
-    background-color: bisque;
-    height: 600px;
+    background-color: rgb(194, 184, 173);
+    height: 300px;
+    margin: 10px;
+    padding:5px;
 
 }

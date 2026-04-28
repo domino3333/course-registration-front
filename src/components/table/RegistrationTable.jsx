@@ -11,9 +11,6 @@ const RegistrationTable = ({ refresh, onEnrollAndRemoveSuccess }) => {
 
     const [registrationList, setRegistrationList] = useState([]);
 
-
-
-
     useEffect(() => {
 
         console.log("registration 테이블 useEffect 시작")
