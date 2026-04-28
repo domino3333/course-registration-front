@@ -8,9 +8,15 @@ const GreenMiniBtn = ({ text, lectureNo, registrationNo, onEnrollAndRemoveSucces
 
         if(text==='신청'){
             console.log("greenMiniBtn 신청 진입")
-            const data = await enroll(lectureNo);
-            onEnrollAndRemoveSuccess();
+            try{
+                const data = await enroll(lectureNo);
+                onEnrollAndRemoveSuccess();
+            }catch(e){
+                alert(e.response?.data || '요청 실패')
+            }
+            alert(`${data}`);
         }else if(text ==='담기'){
+            
 
         }else if(text ==='삭제'){
             const data = await cancelLecture(registrationNo);
