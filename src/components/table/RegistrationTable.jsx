@@ -5,10 +5,11 @@ import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 import { getCartItemList } from "../../api/cartApi";
 import { getRegistrationList } from "../../api/RegistrationApi";
+import { formatDateTime } from "../../util/formatDateTime";
 
 const RegistrationTable = ({ refresh, onEnrollAndRemoveSuccess }) => {
 
-    const [registrationList, setregistrationList] = useState([]);
+    const [registrationList, setRegistrationList] = useState([]);
 
 
 
@@ -19,7 +20,7 @@ const RegistrationTable = ({ refresh, onEnrollAndRemoveSuccess }) => {
 
         const fetchData = async () => {
             const data = await getRegistrationList();
-            setregistrationList(data);
+            setRegistrationList(data);
             console.log("useEffect 후 registration 데이터:", registrationList);
         }
         fetchData();
@@ -34,20 +35,22 @@ const RegistrationTable = ({ refresh, onEnrollAndRemoveSuccess }) => {
                 <thead>
                     <tr>
                         <th>-</th>
-                        <th>등록번호</th>
-                        <th>멤버노</th>
-                        <th>렉처노</th>
-                        <th>등록시간</th>
+                        <th>과목명</th>
+                        <th>교수명</th>
+                        <th>학점</th>
+                        <th>제한인원</th>
+                        <th>등록 시간</th>
                     </tr>
                 </thead>
                 <tbody>
                     {registrationList?.map((item) =>
                         <tr key={item.registrationNo}>
                             <td><GreenMiniBtn text='삭제' registrationNo={item.registrationNo} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
-                            <td>{item.registrationNo}</td>
-                            <td>{item.memberNo}</td>
-                            <td>{item.lectureNo}</td>
-                            <td>{item.createdAt}</td>
+                            <td>{item.title}</td>
+                            <td>{item.professor}</td>
+                            <td>{item.credit}</td>
+                            <td>{item.capacity}</td>
+                            <td>{formatDateTime(item.createdAt)}</td>
                         </tr>
                     )}
                 </tbody>
