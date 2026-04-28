@@ -11,10 +11,10 @@ const GreenMiniBtn = ({ text, lectureNo, registrationNo, onEnrollAndRemoveSucces
             try{
                 const data = await enroll(lectureNo);
                 onEnrollAndRemoveSuccess();
+                alert(`${data}`);
             }catch(e){
-                alert(e.response?.data || '요청 실패')
+                alert(e.response?.data || '요청 실패');
             }
-            alert(`${data}`);
         }else if(text ==='담기'){
             
 
@@ -29,7 +29,7 @@ const GreenMiniBtn = ({ text, lectureNo, registrationNo, onEnrollAndRemoveSucces
 
     return (
         <>
-            <button type="button" onClick={clickButton}>
+            <button type="button" onClick={clickButton} className="GreenMiniBtn">
                 {text}
             </button>
         </>

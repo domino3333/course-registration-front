@@ -3,6 +3,8 @@ import LectureTable from "../components/table/LectureTable";
 import "../css/pages/MainPage.css"
 import RegistrationTable from "../components/table/RegistrationTable";
 import { useState } from "react";
+import MemberInfo from "../components/box/MemberInfo";
+import GrayLongBtn from "../components/button/GrayLongbtn";
 
 const MainPage = () => {
 
@@ -21,7 +23,8 @@ const MainPage = () => {
         <h1>메인페이지</h1>
         <div className="page">
             <div className="side_section">
-                기타버튼영역
+                <MemberInfo/>
+                <GrayLongBtn text='장바구니'/>
             </div>
 
             <div className="main_section">
