@@ -6,15 +6,15 @@ import { useState } from "react";
 
 const MainPage = () => {
 
-    const [lectureRefresh,setLectureRefresh] = useState(0);
-    const [registrationRefresh,setRegistrationRefresh] = useState(0);
+    const [lectureRefresh, setLectureRefresh] = useState(0);
+    const [registrationRefresh, setRegistrationRefresh] = useState(0);
 
-    const handleEnrollAndRemoveSuccess = ()=>{
-        setLectureRefresh(prev=>prev +1);
-        setRegistrationRefresh(prev=>prev +1);
+    const handleEnrollAndRemoveSuccess = () => {
+        setLectureRefresh(prev => prev + 1);
+        setRegistrationRefresh(prev => prev + 1);
     }
-    
-    console.log("lectureRefresh:",lectureRefresh);
+
+    console.log("lectureRefresh:", lectureRefresh);
 
 
     return (<>
@@ -26,10 +26,10 @@ const MainPage = () => {
 
             <div className="main_section">
                 <div className="lecture">
-                    <LectureTable refresh={lectureRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess}/>
+                    <LectureTable refresh={lectureRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
                 <div className="cart">
-                    <RegistrationTable refresh={registrationRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess}/>
+                    <RegistrationTable refresh={registrationRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
 
             </div>
