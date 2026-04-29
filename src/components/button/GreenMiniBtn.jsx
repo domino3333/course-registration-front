@@ -19,6 +19,8 @@ const GreenMiniBtn = ({ text, lectureNo, registrationNo, onEnrollAndRemoveSucces
             
 
         }else if(text ==='삭제'){
+            const ok = window.confirm('정말 삭제하시겠습니까?');
+            if (!ok) return;
             const data = await cancelLecture(registrationNo);
             onEnrollAndRemoveSuccess();
 
