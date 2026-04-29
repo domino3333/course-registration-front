@@ -3,8 +3,22 @@ import { useEffect, useState } from "react";
 import { getLectureList } from "../../api/lectureApi";
 import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
+import { enroll } from "../../api/RegistrationApi";
 
-const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess}) => {
+const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess }) => {
+
+    const handleEnroll = async (lectureNo) => {
+        console.log("greenMiniBtn 신청 진입")
+        try {
+            const data = await enroll(lectureNo);
+            onEnrollAndRemoveSuccess();
+            alert(`${data}`);
+        } catch (e) {
+            alert(e.response?.data || '요청 실패');
+        }
+
+    }
+
 
     return (<>
 
@@ -25,7 +39,7 @@ const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess}) => {
                 <tbody>
                     {lectureList.map((lecture) =>
                         <tr key={lecture.lectureNo}>
-                            <td><GreenMiniBtn text='신청' lectureNo={lecture.lectureNo} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
+                            <td><GreenMiniBtn text='신청' onClick={()=>handleEnroll(lecture.lectureNo)} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
                             <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo} /></td>
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
