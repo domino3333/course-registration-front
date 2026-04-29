@@ -1,0 +1,23 @@
+
+
+.main_div_CartPage{
+    display: flex;
+    width:100%;
+}
+
+
+.CartPage_main_section {
+
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+
+.CartPage_side_section {
+    width: 15%;
+    background-color: rgb(157, 206, 157);
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+}
