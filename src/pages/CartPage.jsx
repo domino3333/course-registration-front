@@ -5,7 +5,7 @@ const CartPage = () => {
 
 
     return (<>
-        <h1>서경대 수강신청</h1>
+        <h1>수강신청</h1>
         <div className="main_div_CartPage">
             <div className="CartPage_side_section">
                 <MemberInfo />

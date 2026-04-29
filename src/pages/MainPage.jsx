@@ -20,7 +20,7 @@ const MainPage = () => {
 
 
     return (<>
-    <h1>서경대 수강신청</h1>
+    <h1>수강신청</h1>
         <div className="page">
             <div className="side_section">
                 <MemberInfo/>
@@ -34,9 +34,7 @@ const MainPage = () => {
                 <div className="cart">
                     <RegistrationTable refresh={registrationRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
-
             </div>
-
         </div>
 
 

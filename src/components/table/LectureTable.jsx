@@ -51,7 +51,7 @@ const LectureTable = ({ refresh,onEnrollAndRemoveSuccess}) => {
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
                             <td>{lecture.credit}</td>
-                            <td>-</td>
+                            <td>{lecture.currentEnrollment}</td>
                             <td>{lecture.capacity}</td>
                             <td>{lecture.professor}</td>
                         </tr>
