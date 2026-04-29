@@ -5,6 +5,8 @@ import RegistrationTable from "../components/table/RegistrationTable";
 import { useState } from "react";
 import MemberInfo from "../components/box/MemberInfo";
 import GrayLongBtn from "../components/button/GrayLongbtn";
+import { useLectures } from "../hooks/useLectures";
+import { useRegistraions } from "../hooks/useRegistrations";
 
 const MainPage = () => {
 
@@ -18,6 +20,9 @@ const MainPage = () => {
 
     console.log("lectureRefresh:", lectureRefresh);
 
+    const lectureList = useLectures(lectureRefresh);
+    const registrationList = useRegistraions(registrationRefresh);
+
 
     return (<>
     <h1>수강신청</h1>
@@ -29,10 +34,10 @@ const MainPage = () => {
 
             <div className="main_section">
                 <div className="lecture">
-                    <LectureTable refresh={lectureRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                    <LectureTable lectureList={lectureList} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
                 <div className="cart">
-                    <RegistrationTable refresh={registrationRefresh} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                    <RegistrationTable registrationList={registrationList} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
             </div>
         </div>

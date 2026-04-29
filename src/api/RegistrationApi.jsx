@@ -35,7 +35,7 @@ export const getRegistrationList = async () => {
 //신청한 강의 삭제(수강취소)
 export const cancelLecture = async(registrationNo) =>{
 
-    const result = axios.delete(`${ApiHost}${apiPrefix}/${registrationNo}`,
+    const result = await axios.delete(`${ApiHost}${apiPrefix}/${registrationNo}`,
         {
             headers:{
                 Authorization:`Bearer ${token}`

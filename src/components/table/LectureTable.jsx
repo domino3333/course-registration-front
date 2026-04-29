@@ -4,28 +4,7 @@ import { getLectureList } from "../../api/lectureApi";
 import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 
-const LectureTable = ({ refresh,onEnrollAndRemoveSuccess}) => {
-
-
-    const [lectureList, setLectureList] = useState([]);
-
-
-
-
-    useEffect(() => {
-
-        console.log("useEffect 시작")
-
-        const fetchData = async function () {
-            const data = await getLectureList();
-            setLectureList(data);
-            console.log("useEffect 후 lecture 데이터:", lectureList);
-
-        }
-        fetchData();
-
-
-    }, [refresh])
+const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess}) => {
 
     return (<>
 

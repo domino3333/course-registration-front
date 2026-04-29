@@ -7,23 +7,7 @@ import { getCartItemList } from "../../api/cartApi";
 import { getRegistrationList } from "../../api/RegistrationApi";
 import { formatDateTime } from "../../util/formatDateTime";
 
-const RegistrationTable = ({ refresh, onEnrollAndRemoveSuccess }) => {
-
-    const [registrationList, setRegistrationList] = useState([]);
-
-    useEffect(() => {
-
-        console.log("registration 테이블 useEffect 시작")
-
-        const fetchData = async () => {
-            const data = await getRegistrationList();
-            setRegistrationList(data);
-            console.log("useEffect 후 registration 데이터:", registrationList);
-        }
-        fetchData();
-
-
-    }, [refresh])
+const RegistrationTable = ({ registrationList, onEnrollAndRemoveSuccess }) => {
 
     return (<>
 
