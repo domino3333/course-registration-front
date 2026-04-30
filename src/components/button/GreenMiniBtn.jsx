@@ -1,7 +1,7 @@
 
 import "../../css/components/GreenMiniBtn.css"
 
-const GreenMiniBtn = ({ text, onClick, onEnrollAndRemoveSuccess }) => {
+const GreenMiniBtn = ({ text, onClick}) => {
 
     return (
         <>

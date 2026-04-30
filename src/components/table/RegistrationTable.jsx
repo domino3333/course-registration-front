@@ -7,7 +7,7 @@ import { getCartItemList } from "../../api/cartApi";
 import { cancelLecture, getRegistrationList } from "../../api/RegistrationApi";
 import { formatDateTime } from "../../util/formatDateTime";
 
-const RegistrationTable = ({ handleCancel, registrationList, onEnrollAndRemoveSuccess }) => {
+const RegistrationTable = ({ handleCancel, registrationList}) => {
 
 
     
@@ -30,7 +30,7 @@ const RegistrationTable = ({ handleCancel, registrationList, onEnrollAndRemoveSu
                 <tbody>
                     {registrationList?.map((item) =>
                         <tr key={item.registrationNo}>
-                            <td><GreenMiniBtn text='삭제' onClick={() => handleCancel(item.registrationNo)} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
+                            <td><GreenMiniBtn text='삭제' onClick={() => handleCancel(item.registrationNo)}/></td>
                             <td>{item.title}</td>
                             <td>{item.professor}</td>
                             <td>{item.credit}</td>

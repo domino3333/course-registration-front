@@ -7,6 +7,7 @@ import MemberInfo from "../components/box/MemberInfo";
 import GrayLongBtn from "../components/button/GrayLongbtn";
 import { useLectures } from "../hooks/useLectures";
 import { useRegistraions } from "../hooks/useRegistrations";
+import { cancelLecture, enroll } from "../api/RegistrationApi";
 
 const MainPage = () => {
 
@@ -27,7 +28,7 @@ const MainPage = () => {
         console.log("LectureTable의 handleEnroll 진입")
         try {
             const data = await enroll(lectureNo);
-            onEnrollAndRemoveSuccess();
+            handleEnrollAndRemoveSuccess();
             alert(`${data}`);
         } catch (e) {
             alert(e.response?.data || '요청 실패');
@@ -40,7 +41,7 @@ const MainPage = () => {
         const ok = window.confirm('정말 삭제하시겠습니까?');
         if (!ok) return;
         const data = await cancelLecture(registrationNo);
-        onEnrollAndRemoveSuccess();
+        handleEnrollAndRemoveSuccess();
     }
 
 
@@ -57,13 +58,13 @@ const MainPage = () => {
                     <LectureTable
                         handleEnroll={handleEnroll}
                         lectureList={lectureList}
-                        onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                         />
                 </div>
                 <div className="cart">
                     <RegistrationTable
                         handleCancel={handleCancel}
                         registrationList={registrationList}
-                        onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                        />
                 </div>
             </div>
         </div>

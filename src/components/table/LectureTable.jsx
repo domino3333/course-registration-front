@@ -5,7 +5,7 @@ import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 import { enroll } from "../../api/RegistrationApi";
 
-const LectureTable = ({ handleEnroll, lectureList, onEnrollAndRemoveSuccess }) => {
+const LectureTable = ({ handleEnroll, lectureList}) => {
 
 
 
@@ -28,7 +28,7 @@ const LectureTable = ({ handleEnroll, lectureList, onEnrollAndRemoveSuccess }) =
                 <tbody>
                     {lectureList.map((lecture) =>
                         <tr key={lecture.lectureNo}>
-                            <td><GreenMiniBtn text='신청' onClick={()=>handleEnroll(lecture.lectureNo)} onEnrollAndRemoveSuccess={onEnrollAndRemoveSuccess} /></td>
+                            <td><GreenMiniBtn text='신청' onClick={()=>handleEnroll(lecture.lectureNo)}/></td>
                             <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo} /></td>
                             <td>{lecture.lectureNo}</td>
                             <td>{lecture.title}</td>
