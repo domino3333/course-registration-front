@@ -23,21 +23,47 @@ const MainPage = () => {
     const lectureList = useLectures(lectureRefresh);
     const registrationList = useRegistraions(registrationRefresh);
 
+    const handleEnroll = async (lectureNo) => {
+        console.log("LectureTable의 handleEnroll 진입")
+        try {
+            const data = await enroll(lectureNo);
+            onEnrollAndRemoveSuccess();
+            alert(`${data}`);
+        } catch (e) {
+            alert(e.response?.data || '요청 실패');
+        }
+
+    }
+
+    const handleCancel = async (registrationNo) => {
+
+        const ok = window.confirm('정말 삭제하시겠습니까?');
+        if (!ok) return;
+        const data = await cancelLecture(registrationNo);
+        onEnrollAndRemoveSuccess();
+    }
+
 
     return (<>
-    <h1>수강신청</h1>
+        <h1>수강신청</h1>
         <div className="page">
             <div className="side_section">
-                <MemberInfo/>
-                <GrayLongBtn text='장바구니'/>
+                <MemberInfo />
+                <GrayLongBtn text='장바구니' />
             </div>
 
             <div className="main_section">
                 <div className="lecture">
-                    <LectureTable lectureList={lectureList} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                    <LectureTable
+                        handleEnroll={handleEnroll}
+                        lectureList={lectureList}
+                        onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
                 <div className="cart">
-                    <RegistrationTable registrationList={registrationList} onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
+                    <RegistrationTable
+                        handleCancel={handleCancel}
+                        registrationList={registrationList}
+                        onEnrollAndRemoveSuccess={handleEnrollAndRemoveSuccess} />
                 </div>
             </div>
         </div>

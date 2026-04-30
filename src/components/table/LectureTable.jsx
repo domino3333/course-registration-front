@@ -5,19 +5,8 @@ import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 import { enroll } from "../../api/RegistrationApi";
 
-const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess }) => {
+const LectureTable = ({ handleEnroll, lectureList, onEnrollAndRemoveSuccess }) => {
 
-    const handleEnroll = async (lectureNo) => {
-        console.log("LectureTable의 handleEnroll 진입")
-        try {
-            const data = await enroll(lectureNo);
-            onEnrollAndRemoveSuccess();
-            alert(`${data}`);
-        } catch (e) {
-            alert(e.response?.data || '요청 실패');
-        }
-
-    }
 
 
     return (<>

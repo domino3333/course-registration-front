@@ -7,16 +7,10 @@ import { getCartItemList } from "../../api/cartApi";
 import { cancelLecture, getRegistrationList } from "../../api/RegistrationApi";
 import { formatDateTime } from "../../util/formatDateTime";
 
-const RegistrationTable = ({ registrationList, onEnrollAndRemoveSuccess }) => {
+const RegistrationTable = ({ handleCancel, registrationList, onEnrollAndRemoveSuccess }) => {
 
 
-    const handleCancel = async (registrationNo) => {
-
-        const ok = window.confirm('정말 삭제하시겠습니까?');
-        if (!ok) return;
-        const data = await cancelLecture(registrationNo);
-        onEnrollAndRemoveSuccess();
-    }
+    
 
 
     return (<>
