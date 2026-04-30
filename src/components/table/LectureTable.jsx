@@ -8,7 +8,7 @@ import { enroll } from "../../api/RegistrationApi";
 const LectureTable = ({ lectureList, onEnrollAndRemoveSuccess }) => {
 
     const handleEnroll = async (lectureNo) => {
-        console.log("greenMiniBtn 신청 진입")
+        console.log("LectureTable의 handleEnroll 진입")
         try {
             const data = await enroll(lectureNo);
             onEnrollAndRemoveSuccess();

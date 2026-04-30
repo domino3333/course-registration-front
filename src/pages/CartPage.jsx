@@ -11,7 +11,7 @@ const CartPage = () => {
                 <MemberInfo />
             </div>
             <div className="CartPage_main_section">
-                <h1>장바구니 테이블 영여 </h1>
+                <h1> 장바구니 테이블 작성 후 끼워넣기 </h1>
             </div>
         </div>
     </>)
