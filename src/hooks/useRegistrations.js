@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getRegistrationList } from "../api/RegistrationApi"
 
 
-export const useRegistraions = (refresh) => {
+export const useRegistrations = (refresh) => {
 
     const [registrationList,setRegistrationList] = useState([]);
 

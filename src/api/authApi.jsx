@@ -1,8 +1,10 @@
 import axios from "axios";
-import { ApiHost, token } from "./ApiHost";
+import { ApiHost } from "./ApiHost";
 
 
 const apiPrefix = '/api/auth'
+
+const token = localStorage.getItem("accessToken");
 
 //login 요청 메서드
 export const login = async (data)=>{

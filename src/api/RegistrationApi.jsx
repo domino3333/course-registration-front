@@ -1,7 +1,9 @@
 import axios from "axios";
-import { ApiHost, token } from "./ApiHost";
+import { ApiHost } from "./ApiHost";
 
 const apiPrefix = '/api/registration';
+
+const token = localStorage.getItem("accessToken");
 
 //수강 '신청' 버튼 클릭
 export const enroll = async (lectureNo) => {

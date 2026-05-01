@@ -1,6 +1,9 @@
 import axios from "axios"
 import { ApiHost } from "./ApiHost"
 
+const token = localStorage.getItem("accessToken");
+
+
 export const getCartItemList = async ()=>{
 
     const token = localStorage.getItem("accessToken");

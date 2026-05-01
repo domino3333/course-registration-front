@@ -6,7 +6,7 @@ import { useState } from "react";
 import MemberInfo from "../components/box/MemberInfo";
 import GrayLongBtn from "../components/button/GrayLongbtn";
 import { useLectures } from "../hooks/useLectures";
-import { useRegistraions } from "../hooks/useRegistrations";
+import { useRegistrations } from "../hooks/useRegistrations";
 import { cancelLecture, enroll } from "../api/RegistrationApi";
 
 const MainPage = () => {
@@ -20,9 +20,10 @@ const MainPage = () => {
     }
 
     console.log("lectureRefresh:", lectureRefresh);
+    console.log("registrationRefresh:", registrationRefresh);
 
     const lectureList = useLectures(lectureRefresh);
-    const registrationList = useRegistraions(registrationRefresh);
+    const registrationList = useRegistrations(registrationRefresh);
 
     const handleEnroll = async (lectureNo) => {
         console.log("LectureTable의 handleEnroll 진입")
