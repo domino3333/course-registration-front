@@ -8,6 +8,7 @@ import GrayLongBtn from "../components/button/GrayLongbtn";
 import { useLectures } from "../hooks/useLectures";
 import { useRegistrations } from "../hooks/useRegistrations";
 import { cancelLecture, enroll } from "../api/RegistrationApi";
+import { addToCart } from "../api/cartApi";
 
 const MainPage = () => {
 
@@ -45,6 +46,18 @@ const MainPage = () => {
         handleEnrollAndRemoveSuccess();
     }
 
+    const handleAddToCart = async (lectureNo) => {
+        const ok = window.confirm('장바구니에 추가하시겠습니까?');
+        if (!ok) return;
+        try{
+            const data = await addToCart(lectureNo);
+            alert(`장바구니에 추가되었습니다. 장바구니 페이지에서 확인해주세요`)
+        }catch(e){
+            console.log('addToCart 에러 발생')
+        }
+        
+    }
+
 
     return (<>
         <h1>수강신청</h1>
@@ -57,15 +70,16 @@ const MainPage = () => {
             <div className="main_section">
                 <div className="lecture">
                     <LectureTable
+                        handleAddToCart={handleAddToCart}
                         handleEnroll={handleEnroll}
                         lectureList={lectureList}
-                         />
+                    />
                 </div>
-                <div className="cart">
+                <div className="registration">
                     <RegistrationTable
                         handleCancel={handleCancel}
                         registrationList={registrationList}
-                        />
+                    />
                 </div>
             </div>
         </div>

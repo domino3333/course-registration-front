@@ -16,6 +16,16 @@ export const getCartItemList = async ()=>{
     
 }
 
+export const addToCart = async (lectureNo) =>{
+
+    const result = await axios.post(`${ApiHost}${apiPrefix}/${lectureNo}`,null,{
+        headers:{
+            Authorization:`Bearer ${token}`
+        }
+    })
+
+}
+
 
 export const cancelLectureInMyCart = async (lectureNo)=>{
 
