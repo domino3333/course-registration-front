@@ -3,7 +3,7 @@ import { getCartItemList } from "../api/cartApi";
 
 
 
-export const useCartItems = () =>{
+export const useCartItems = (refresh) =>{
 
 
     const [cartItemList,setCartItemList] = useState([]);
@@ -19,7 +19,7 @@ export const useCartItems = () =>{
 
         fetchData();
 
-    },[])
+    },[refresh])
 
 
     return cartItemList;
