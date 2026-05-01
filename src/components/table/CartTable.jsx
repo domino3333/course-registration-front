@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { getLectureList } from "../../api/lectureApi";
 import "../../css/components/LectureTable.css"
 import GreenMiniBtn from "../button/GreenMiniBtn";
 import { enroll } from "../../api/RegistrationApi";
 
-const CartTable = ({ handleEnroll, handleCancel}) => {
+const CartTable = ({ cartItemList, handleEnroll, handleCancel}) => {
 
 
 
@@ -15,8 +14,7 @@ const CartTable = ({ handleEnroll, handleCancel}) => {
             <table className="tbl_lecture">
                 <thead>
                     <tr>
-                        <th>신청</th>
-                        <th>장바구니</th>
+                        <th>삭제</th>
                         <th>과목 번호</th>
                         <th>교과목명</th>
                         <th>학점</th>
@@ -26,16 +24,15 @@ const CartTable = ({ handleEnroll, handleCancel}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {lectureList.map((lecture) =>
-                        <tr key={lecture.lectureNo}>
-                            <td><GreenMiniBtn text='신청' onClick={()=>handleEnroll(lecture.lectureNo)}/></td>
-                            <td><GreenMiniBtn text='담기' lectureNo={lecture.lectureNo} /></td>
-                            <td>{lecture.lectureNo}</td>
-                            <td>{lecture.title}</td>
-                            <td>{lecture.credit}</td>
-                            <td>{lecture.currentEnrollment}</td>
-                            <td>{lecture.capacity}</td>
-                            <td>{lecture.professor}</td>
+                    {cartItemList.map((item) =>
+                        <tr key={item.lectureNo}>
+                            <td><GreenMiniBtn/></td>
+                            <td>{item.lectureNo}</td>
+                            <td>{item.title}</td>
+                            <td>{item.credit}</td>
+                            <td>{item.currentEnrollment}</td>
+                            <td>{item.capacity}</td>
+                            <td>{item.professor}</td>
                         </tr>
                     )}
                 </tbody>

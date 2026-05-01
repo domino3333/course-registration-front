@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react"
+import { getCartItemList } from "../api/cartApi";
 
 
 
-const useCartItems = () =>{
+export const useCartItems = () =>{
 
 
-    const [cartItems,setCartItems] = useState([]);
-
+    const [cartItemList,setCartItemList] = useState([]);
 
     useEffect(()=>{
 
         const fetchData = async() => {
             
-            const data = await getCartItems();
+            const data = await getCartItemList();
             console.log('useCartItems후 데이터:',data);
-            setCartItems(data);
+            setCartItemList(data);
         }
 
         fetchData();
@@ -22,9 +22,7 @@ const useCartItems = () =>{
     },[])
 
 
-
-
-
-
+    return cartItemList;
 
 }
+

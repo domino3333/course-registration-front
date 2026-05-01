@@ -1,8 +1,13 @@
 import MemberInfo from "../components/box/MemberInfo"
 import CartTable from "../components/table/CartTable";
 import "../css/pages/CartPage.css"
+import { useCartItems } from "../hooks/useCartItems";
 
 const CartPage = () => {
+
+
+    const cartItemList = useCartItems();
+
 
 
     //RegistrationApi에 있는 등록 api를 보게함
@@ -32,7 +37,7 @@ const CartPage = () => {
                 <MemberInfo />
             </div>
             <div className="CartPage_main_section">
-                <h1> <CartTable handleCancel={handleCancel} handleEnroll={handleEnroll}/> </h1>
+                <CartTable cartItemList={cartItemList} handleCancel={handleCancel} handleEnroll={handleEnroll}/>
             </div>
         </div>
     </>)
