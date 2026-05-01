@@ -5,6 +5,8 @@ import MemberInfo from "../components/box/MemberInfo"
 import CartTable from "../components/table/CartTable";
 import "../css/pages/CartPage.css"
 import { useCartItems } from "../hooks/useCartItems";
+
+
 const CartPage = () => {
 
 
@@ -21,6 +23,7 @@ const CartPage = () => {
         console.log("CartTable의 handleEnroll 진입")
         try {
             const data = await enroll(lectureNo);
+            refreshCartTable();
             alert(`${data}`);
         } catch (e) {
             alert(e.response?.data || '요청 실패');
