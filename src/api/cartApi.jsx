@@ -4,6 +4,7 @@ import { ApiHost } from "./ApiHost"
 
 const apiPrefix = '/api/cartItem'
 
+// 장바구니에 있는 아이템들 호출
 export const getCartItemList = async () => {
     
     const token = localStorage.getItem("accessToken");
@@ -17,6 +18,7 @@ export const getCartItemList = async () => {
 
 }
 
+// 장바구니에 아이템 추가(lectureNo 전달)
 export const addToCart = async (lectureNo) => {
     const token = localStorage.getItem("accessToken");
     const result = await axios.post(`${ApiHost}${apiPrefix}/${lectureNo}`, null, {
@@ -28,6 +30,7 @@ export const addToCart = async (lectureNo) => {
 }
 
 
+// 장바구니에서 아이템 삭제
 export const cancelLectureInMyCart = async (lectureNo) => {
     const token = localStorage.getItem("accessToken");
     const result = await axios.delete(`${ApiHost}${apiPrefix}/${lectureNo}`, {
@@ -37,17 +40,5 @@ export const cancelLectureInMyCart = async (lectureNo) => {
     })
 
     return result.data;
-
-}
-
-export const getCartItems = async () => {
-    const token = localStorage.getItem("accessToken");
-    const result = await axios.get(`${ApiHost}${apiPrefix}`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
-    )
 
 }
