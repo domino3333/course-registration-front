@@ -9,11 +9,14 @@ import { useLectures } from "../hooks/useLectures";
 import { useRegistrations } from "../hooks/useRegistrations";
 import { cancelLecture, enroll } from "../api/RegistrationApi";
 import { addToCart } from "../api/cartApi";
+import { useNavigate } from "react-router-dom";
 
 const MainPage = () => {
 
     const [lectureRefresh, setLectureRefresh] = useState(0);
     const [registrationRefresh, setRegistrationRefresh] = useState(0);
+
+    const nav = useNavigate();
 
     const handleEnrollAndRemoveSuccess = () => {
         setLectureRefresh(prev => prev + 1);
@@ -64,7 +67,7 @@ const MainPage = () => {
         <div className="page">
             <div className="side_section">
                 <MemberInfo />
-                <GrayLongBtn text='장바구니' />
+                <GrayLongBtn text='장바구니' onClick={()=>nav('/cart')} />
             </div>
 
             <div className="main_section">
@@ -76,6 +79,7 @@ const MainPage = () => {
                     />
                 </div>
                 <div className="registration">
+                    <h3>수강 목록</h3>
                     <RegistrationTable
                         handleCancel={handleCancel}
                         registrationList={registrationList}

@@ -5,17 +5,20 @@ import MemberInfo from "../components/box/MemberInfo"
 import CartTable from "../components/table/CartTable";
 import "../css/pages/CartPage.css"
 import { useCartItems } from "../hooks/useCartItems";
+import GrayLongBtn from "../components/button/GrayLongbtn";
+import { useNavigate } from "react-router-dom";
 
 
 const CartPage = () => {
 
 
-    const [cartRefresh,setCartRefresh] = useState(0);
+    const nav = useNavigate();
+    const [cartRefresh, setCartRefresh] = useState(0);
 
     const cartItemList = useCartItems(cartRefresh);
 
-    const refreshCartTable = () =>{
-        setCartRefresh(prev => prev +1);
+    const refreshCartTable = () => {
+        setCartRefresh(prev => prev + 1);
     }
 
     //RegistrationApi에 있는 등록 api를 보게함
@@ -48,13 +51,15 @@ const CartPage = () => {
         <div className="main_div_CartPage">
             <div className="CartPage_side_section">
                 <MemberInfo />
+                <GrayLongBtn text='메인화면' onClick={() => nav('/')} />
+
             </div>
             <div className="CartPage_main_section">
                 <CartTable
                     cartItemList={cartItemList}
                     handleCancel={handleCancel}
                     handleEnroll={handleEnroll}
-                    />
+                />
             </div>
         </div>
     </>)
