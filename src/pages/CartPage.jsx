@@ -51,7 +51,7 @@ const CartPage = () => {
         <div className="main_div_CartPage">
             <div className="CartPage_side_section">
                 <MemberInfo />
-                <GrayLongBtn text='메인화면' onClick={() => nav('/')} />
+                <GrayLongBtn text='메인화면' onClick={() => nav('/main')} />
 
             </div>
             <div className="CartPage_main_section">

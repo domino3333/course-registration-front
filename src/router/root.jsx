@@ -12,7 +12,7 @@ const LoadingPage = lazy(()=>import("../pages/LoadingPage"))
 
 const root = createBrowserRouter([
     {
-        path:'/',
+        path:'/main',
         element:(
             <Suspense fallback={<LoadingPage/>}>
                 <MainPage/>
