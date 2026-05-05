@@ -25,7 +25,7 @@ const LoginPage = () =>{
     const clickLogin = async (e)=>{
         e.preventDefault();
         const data = await login(input); // accessToken이 내려옴
-        nav('/main')
+        nav('/queue')
     }
 
     const clickSignUp = async ()=>{

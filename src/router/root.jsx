@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import CartPage from "../pages/CartPage";
+import QueuePage from "../pages/QueuePage";
 
 
 const MainPage = lazy(()=>import("../pages/MainPage"))
@@ -40,6 +41,14 @@ const root = createBrowserRouter([
         element:(
             <Suspense fallback={<LoadingPage/>}>
                 <CartPage/>
+            </Suspense>
+        )
+    },
+    {
+        path:'/queue',
+        element:(
+            <Suspense fallback={<LoadingPage/>}>
+                <QueuePage/>
             </Suspense>
         )
     },
