@@ -66,6 +66,15 @@ const MainPage = () => {
 
     useEffect(() => {
         const checkTicket = async () => {
+
+            const token = localStorage.getItem("accessToken");
+
+            if(!token){
+                nav("/login");
+                return;
+            }
+
+
             try {
                 const data = await hasTicket();
                 console.log("Do u have a ticket?:", data ? "Yes" : "No");
