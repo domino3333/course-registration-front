@@ -3,34 +3,37 @@ import { useState } from "react"
 import { ApiHost } from "../api/ApiHost";
 import { login } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import { hasTicket } from "../api/queueApi";
 
 
-const LoginPage = () =>{
+const LoginPage = () => {
 
 
     const nav = useNavigate();
 
-    const [input,setInput] = useState({
-        email:"",
-        password:""
+    const [input, setInput] = useState({
+        email: "",
+        password: ""
     });
 
-    const observeInput = (e)=>{
-        setInput({...input,
+    const observeInput = (e) => {
+        setInput({
+            ...input,
             [e.target.name]: e.target.value
         })
-        
+
     }
 
-    const clickLogin = async (e)=>{
+    const clickLogin = async (e) => {
         e.preventDefault();
         const data = await login(input); // accessToken이 내려옴
         nav('/queue')
     }
 
-    const clickSignUp = async ()=>{
+    const clickSignUp = async () => {
         nav('/signUp')
     }
+
 
 
 
@@ -47,7 +50,7 @@ const LoginPage = () =>{
         </form>
 
         <button onClick={clickSignUp}>회원가입</button>
-        
+
     </>)
 }
 

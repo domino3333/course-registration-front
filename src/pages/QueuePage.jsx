@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import { admitQueue, enterQueue, getQueueStatus } from "../api/queueApi";
+import { admitQueue, enterQueue, getQueueStatus, hasTicket } from "../api/queueApi";
 
 
 

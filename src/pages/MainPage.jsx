@@ -2,7 +2,7 @@ import CartTable from "../components/table/RegistrationTable";
 import LectureTable from "../components/table/LectureTable";
 import "../css/pages/MainPage.css"
 import RegistrationTable from "../components/table/RegistrationTable";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MemberInfo from "../components/box/MemberInfo";
 import GrayLongBtn from "../components/button/GrayLongbtn";
 import { useLectures } from "../hooks/useLectures";
@@ -10,11 +10,13 @@ import { useRegistrations } from "../hooks/useRegistrations";
 import { cancelLecture, enroll } from "../api/RegistrationApi";
 import { addToCart } from "../api/cartApi";
 import { useNavigate } from "react-router-dom";
+import { hasTicket } from "../api/queueApi";
 
 const MainPage = () => {
 
     const [lectureRefresh, setLectureRefresh] = useState(0);
     const [registrationRefresh, setRegistrationRefresh] = useState(0);
+    const [checkingTicket, setCheckingTicket] = useState(true);
 
     const nav = useNavigate();
 
@@ -52,14 +54,40 @@ const MainPage = () => {
     const handleAddToCart = async (lectureNo) => {
         const ok = window.confirm('장바구니에 추가하시겠습니까?');
         if (!ok) return;
-        try{
+        try {
             const data = await addToCart(lectureNo);
             alert(`장바구니에 추가되었습니다. 장바구니 페이지에서 확인해주세요`)
-        }catch(e){
+        } catch (e) {
             console.log('addToCart 에러 발생')
         }
-        
+
     }
+
+
+    useEffect(() => {
+        const checkTicket = () => {
+            try {
+                const data = hasTicket();
+                console.log("Do u have a ticket?:", data ? "Yes" : "No");
+
+                if (!data) {
+                    nav("/queue");
+                }
+            } catch (e) {
+                nav("/queue");
+            } finally {
+                setCheckingTicket(false);
+            }
+        }
+
+
+        checkTicket();
+    }, [nav]);
+
+    if(checkingTicket){
+        return null;
+    }
+
 
 
     return (<>
@@ -67,7 +95,7 @@ const MainPage = () => {
         <div className="page">
             <div className="side_section">
                 <MemberInfo />
-                <GrayLongBtn text='장바구니' onClick={()=>nav('/cart')} />
+                <GrayLongBtn text='장바구니' onClick={() => nav('/cart')} />
             </div>
 
             <div className="main_section">
