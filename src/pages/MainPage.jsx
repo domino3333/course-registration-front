@@ -58,8 +58,11 @@ const MainPage = () => {
             const data = await addToCart(lectureNo);
             alert(`장바구니에 추가되었습니다. 장바구니 페이지에서 확인해주세요`)
         } catch (e) {
-            alert(e.response.data);
-            console.log('addToCart 에러 발생');
+            // HttpStatus.CONFLICT
+            if(e.response.status===409){
+                //body("이미 장바구니에 있는 강의입니다")
+                alert(e.response.data);
+            }
         }
 
     }
