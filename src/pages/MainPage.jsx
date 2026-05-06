@@ -65,9 +65,9 @@ const MainPage = () => {
 
 
     useEffect(() => {
-        const checkTicket = () => {
+        const checkTicket = async () => {
             try {
-                const data = hasTicket();
+                const data = await hasTicket();
                 console.log("Do u have a ticket?:", data ? "Yes" : "No");
 
                 if (!data) {
@@ -84,6 +84,8 @@ const MainPage = () => {
         checkTicket();
     }, [nav]);
 
+    //처음엔 랜더링 하지 않게하고 useEffect 후에 티켓이 있는지 검사 후에 랜더링을 한다
+    // 티켓을 검사하는 도중에도 화면을 보여주기 싫어서
     if(checkingTicket){
         return null;
     }
