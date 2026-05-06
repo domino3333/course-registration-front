@@ -58,7 +58,8 @@ const MainPage = () => {
             const data = await addToCart(lectureNo);
             alert(`장바구니에 추가되었습니다. 장바구니 페이지에서 확인해주세요`)
         } catch (e) {
-            console.log('addToCart 에러 발생')
+            alert(e.response.data);
+            console.log('addToCart 에러 발생');
         }
 
     }
