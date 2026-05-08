@@ -13,7 +13,8 @@ const QueuePage = () => {
     const [status,setStatus] = useState({
         rank:null,
         waitingAhead:null,
-        allowed:false
+        allowed:false,
+        nextPollMillis:10000
     });
 
     useEffect(()=>{
@@ -35,7 +36,7 @@ const QueuePage = () => {
                         nav("/main");
                     }
                 }
-            },2000)
+            },data.nextPollMillis)
 
         };
 
