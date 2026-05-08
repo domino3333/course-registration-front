@@ -35,8 +35,8 @@ const CartPage = () => {
     }
 
 
-    const handleCancel = async (lectureNo) => {
-        const ok = window.confirm('정말 삭제하시겠습니까?');
+    const handleCancel = async (lectureNo,title) => {
+        const ok = window.confirm(`'${title}' 과목을 정말 삭제하시겠습니까?`);
         if (!ok) return;
         const data = await cancelLectureInMyCart(lectureNo);
         refreshCartTable();

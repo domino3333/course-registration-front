@@ -28,7 +28,7 @@ const CartTable = ({ cartItemList, handleEnroll, handleCancel}) => {
                     {cartItemList.map((item) =>
                         <tr key={item.lectureNo}>
                             <td><GreenMiniBtn text='신청' onClick={()=>handleEnroll(item.lectureNo)}/></td>
-                            <td><GreenMiniBtn text='삭제' onClick={()=>handleCancel(item.lectureNo)}/></td>
+                            <td><GreenMiniBtn text='삭제' onClick={()=>handleCancel(item.lectureNo,item.title)}/></td>
                             <td>{item.lectureNo}</td>
                             <td>{item.title}</td>
                             <td>{item.credit}</td>
