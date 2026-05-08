@@ -43,9 +43,9 @@ const MainPage = () => {
 
     }
 
-    const handleCancel = async (registrationNo) => {
+    const handleCancel = async (registrationNo,title) => {
 
-        const ok = window.confirm('정말 삭제하시겠습니까?');
+        const ok = window.confirm(`'${title}' 과목을 정말 삭제하시겠습니까?`);
         if (!ok) return;
         const data = await cancelLecture(registrationNo);
         handleEnrollAndRemoveSuccess();

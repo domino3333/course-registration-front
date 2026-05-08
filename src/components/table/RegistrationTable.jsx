@@ -30,7 +30,7 @@ const RegistrationTable = ({ handleCancel, registrationList}) => {
                 <tbody>
                     {registrationList?.map((item) =>
                         <tr key={item.registrationNo}>
-                            <td><GreenMiniBtn text='삭제' onClick={() => handleCancel(item.registrationNo)}/></td>
+                            <td><GreenMiniBtn text='삭제' onClick={() => handleCancel(item.registrationNo,item.title)}/></td>
                             <td>{item.title}</td>
                             <td>{item.professor}</td>
                             <td>{item.credit}</td>
