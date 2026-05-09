@@ -17,34 +17,49 @@ const QueuePage = () => {
         nextPollMillis:10000
     });
 
-    useEffect(()=>{
+     useEffect(() => {
         let timerId;
+        let stopped = false;
+        
+        const pollStatus = async () => {
+            if (stopped) return;
 
-        //2초마다 status 호출
-        const startQueue = async () =>{
-            await enterQueue();
-
-            timerId = setInterval(async ()=>{
+            try {
                 const data = await getQueueStatus();
                 setStatus(data);
 
-                if(data.allowed){
+                if (data.allowed) {
                     const admitted = await admitQueue();
 
-                    if(admitted){
-                        clearInterval(timerId);
+                    if (admitted) {
                         nav("/main");
+                        return;
                     }
                 }
-            },data.nextPollMillis)
 
+                const nextDelay = Math.max(data.nextPollMillis ?? 10000, 1000);
+                timerId = setTimeout(pollStatus, nextDelay);
+            } catch (e) {
+                timerId = setTimeout(pollStatus, 10000);
+            }
+        };
+
+        const startQueue = async () => {
+            try {
+                await enterQueue();
+                await pollStatus();
+            } catch (e) {
+                nav("/login");
+            }
         };
 
         startQueue();
-        return () => clearInterval(timerId);
 
-
-    },[nav])
+        return () => {
+            stopped = true;
+            clearTimeout(timerId);
+        };
+    }, [nav]);
 
 
     
