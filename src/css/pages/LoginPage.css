@@ -1,0 +1,54 @@
+.div_LoginPage {
+    height: 100vh;
+    border: 1px solid yellow;
+    margin: 0 auto;
+    display: flex;
+}
+
+.div_loginForm {
+    
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 50px;
+}
+
+.form_login {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn_login {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(139, 181, 139);
+    font-weight: 800;
+}
+
+.btn_signUp {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 800;
+    background-color: rgb(139, 181, 139);
+}
+
+#email {
+    border: 0.5px solid black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#password {
+    width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid black;
+}

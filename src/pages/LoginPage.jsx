@@ -4,6 +4,7 @@ import { ApiHost } from "../api/ApiHost";
 import { login } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
 import { hasTicket } from "../api/queueApi";
+import "../css/pages/LoginPage.css"
 
 
 const LoginPage = () => {
@@ -38,19 +39,25 @@ const LoginPage = () => {
 
 
     return (<>
-        <form onSubmit={clickLogin}>
-            <label htmlFor="email">
-                <input id="email" onChange={observeInput} name="email" type="text" placeholder="이메일" />
-            </label>
-            <label htmlFor="password">
-                <input id="password" type="password" name="password" onChange={observeInput} placeholder="비밀번호" />
-            </label>
 
-            <button type="submit">로그인</button>
-        </form>
+        <div className="div_LoginPage">
+            <div className="div_loginForm">
 
-        <button onClick={clickSignUp}>회원가입</button>
 
+                <form className="form_login" onSubmit={clickLogin}>
+                    <label htmlFor="email">
+                        <input id="email" onChange={observeInput} name="email" type="text" placeholder="이메일" />
+                    </label>
+                    <label htmlFor="password">
+                        <input id="password" type="password" name="password" onChange={observeInput} placeholder="비밀번호" />
+                    </label>
+
+                    <button className="btn_login" type="submit">로그인</button>
+                    <button className="btn_signUp" onClick={clickSignUp}>회원가입</button>
+                </form>
+
+            </div>
+        </div>
     </>)
 }
 
