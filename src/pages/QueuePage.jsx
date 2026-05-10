@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { admitQueue, enterQueue, getQueueStatus, hasTicket } from "../api/queueApi";
+import "../css/pages/QueuePage.css";
 
 
 
@@ -64,14 +65,18 @@ const QueuePage = () => {
 
     
 
-    return(<>
-
-        <h1>대기열 페이지</h1>
-        <p>현재순번: {status.rank}</p>
-        <p>앞에 남은 사람:{status.waitingAhead}</p>
-        <p>입장 가능 여부:{status.allowed === true ? "가능" : "대기중"}</p>
-
-    </>)
+    return(
+        <div className="div_QueuePage">
+            <div className="div_queueBox">
+                <h1 className="h1_queueTitle">대기열 페이지</h1>
+                <div className="div_queueStatus">
+                    <p>현재 순번: {status.rank}</p>
+                    <p>앞에 남은 사람: {status.waitingAhead}</p>
+                    <p>입장 가능 여부: {status.allowed === true ? "가능" : "대기중"}</p>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default QueuePage;
